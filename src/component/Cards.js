@@ -1,59 +1,55 @@
 import React, { useState } from "react";
 
-const egg = require("../img/egg.png");
+import Card from "./Card";
+
 const cat = require("../img/Cat.jpg");
 const me = require("../img/profile_cropped.png");
 const mii = require("../img/mii.png");
 
-const Cards = (props) => {
-  const [flipFlag, setFlipFlag] = useState([null, false]);
-  const [view, setView] = useState([null, null, 0]); //[id, idx, flips]
+const cards = [
+  { img: cat, id: 1 },
+  { img: me, id: 2 },
+  { img: mii, id: 3 },
+  { img: me, id: 2 },
+  { img: mii, id: 3 },
+  { img: cat, id: 1 },
+];
 
-  function addFlip(idx) {
-    console.log("b4", view);
-    if (view[2] === 0) {
-      setView([cards[idx]["id"], idx, 1]);
-    } else if (view[2] === 1) {
-      if (view[1] !== idx) {
-        if (view[0] === cards[idx]["id"]) {
-          alert("matched!");
+const Cards = (props) => {
+  const [flipped, setFlipped] = useState(null);
+  const [last, setLast] = useState(null);
+  const [two, setTwo] = useState(false);
+  const [found, setFound] = useState({});
+
+  function flip(card, idx) {
+    if (!flipped) {
+      setFlipped(card.id);
+      setLast(idx);
+    } else {
+      if (last !== idx) {
+        setTwo(true);
+        if (flipped === card.id) {
+          setFound({ ...found, [flipped]: true });
         }
-        setView([null, null, 0]);
+        setTimeout(() => {
+          setTwo(false);
+          setFlipped(null);
+          setLast(null);
+        }, 500);
       }
     }
-    setFlipFlag([idx, !flipFlag[1]]);
   }
-
-  const cards = [
-    { img: cat, id: 1 },
-    { img: me, id: 2 },
-    { img: mii, id: 3 },
-    { img: me, id: 2 },
-    { img: mii, id: 3 },
-    { img: cat, id: 1 },
-  ];
-
   const allCards = cards.map((card, idx) => {
     return (
-      <div key={idx} className="card-box" onClick={() => addFlip(idx)}>
-        <img
-          src={card.img}
-          className={
-            (flipFlag[0] === idx && !flipFlag[1] ? "flip-in" : "") +
-            ((flipFlag[0] === idx && flipFlag[1]) || flipFlag[0] !== idx
-              ? "flip-out"
-              : "")
-          }
-        />
-        <img
-          src={egg}
-          className={
-            ((flipFlag[0] === idx && flipFlag[1]) || flipFlag[0] !== idx
-              ? "flip-in"
-              : "") + (flipFlag[0] === idx && !flipFlag[1] ? "flip-out" : "")
-          }
-        />
-      </div>
+      <Card
+        key={idx}
+        card={card}
+        idx={idx}
+        last={last}
+        flip={flip}
+        two={two}
+        found={found}
+      />
     );
   });
 
