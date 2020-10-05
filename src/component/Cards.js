@@ -20,6 +20,9 @@ const Cards = (props) => {
   const [last, setLast] = useState(null);
   const [two, setTwo] = useState(false);
   const [found, setFound] = useState({});
+  const [numFound, setNumFound] = useState(0);
+
+  const foundAll = numFound === cards.length / 2;
 
   function flip(card, idx) {
     if (!flipped) {
@@ -30,12 +33,13 @@ const Cards = (props) => {
         setTwo(true);
         if (flipped === card.id) {
           setFound({ ...found, [flipped]: true });
+          setNumFound(numFound + 1);
         }
         setTimeout(() => {
           setTwo(false);
           setFlipped(null);
           setLast(null);
-        }, 500);
+        }, 200);
       }
     }
   }
@@ -55,6 +59,15 @@ const Cards = (props) => {
 
   return (
     <>
+      <header>
+        <h2>Number of Matches found</h2>
+        <h1>{numFound}</h1>
+        {foundAll ? (
+          <h1>Congrats! You found them all</h1>
+        ) : (
+          <h4>You still have {cards.length / 2 - numFound} left</h4>
+        )}
+      </header>
       <div className="cards-container">{allCards}</div>
     </>
   );

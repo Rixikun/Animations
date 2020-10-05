@@ -1,10 +1,17 @@
 .App {
   background-color: #282c34;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   max-width: 100vw;
+  color: white;
+
+  header {
+    text-align: center;
+    height: 200px;
+  }
 }
 
 .cards-container {
@@ -20,11 +27,11 @@
     text-align: initial;
 
     .flip-in {
-      animation: flip-in 1s 1 linear forwards;
+      animation: flip-in 0.8s 1 linear forwards;
       z-index: 1;
     }
     .flip-out {
-      animation: flip-out 1s 1 linear forwards;
+      animation: flip-out 0.8s 1 linear forwards;
       z-index: 0;
     }
     img {
