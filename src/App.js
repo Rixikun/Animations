@@ -6,6 +6,9 @@ function App() {
   return (
     <div className="App">
       <Cards />
+      <footer>
+        <p>Lin 2020</p>
+      </footer>
     </div>
   );
 }
