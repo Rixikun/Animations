@@ -7,12 +7,12 @@ const me = require("../img/profile_cropped.png");
 const mii = require("../img/mii.png");
 
 const cards = [
-  { img: cat, id: 1 },
-  { img: me, id: 2 },
-  { img: mii, id: 3 },
-  { img: me, id: 2 },
-  { img: mii, id: 3 },
-  { img: cat, id: 1 },
+  { img: cat, id: 1, desc: "cat" },
+  { img: me, id: 2, desc: "woman" },
+  { img: mii, id: 3, desc: "nintendo mii" },
+  { img: me, id: 2, desc: "woman" },
+  { img: mii, id: 3, desc: "nintendo mii" },
+  { img: cat, id: 1, desc: "cat" },
 ];
 
 const Cards = (props) => {

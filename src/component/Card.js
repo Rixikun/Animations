@@ -25,12 +25,12 @@ const Card = (props) => {
         <img
           src={egg}
           className={!flipFlag ? "flip-in" : "flip-out"}
-          alt="back of card"
+          alt={"back of card showing an egg"}
         />
         <img
           src={card.img}
           className={flipFlag ? "flip-in" : "flip-out"}
-          alt="front of card"
+          alt={"front of card showing a " + card.desc}
         />
       </div>
     </>
