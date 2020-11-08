@@ -1,0 +1,30 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100vw - 4rem);
+  margin: 0 2rem;
+  height: 100px;
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 1rem;
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: turquoise;
+        }
+      }
+    }
+  }
+}
