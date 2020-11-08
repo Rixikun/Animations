@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-const egg = require("../img/egg.png");
+const egg = require("../../img/egg.png");
 
 const Card = (props) => {
   const [flipFlag, setFlipFlag] = useState(false);

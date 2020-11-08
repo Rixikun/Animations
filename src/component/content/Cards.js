@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import Card from "./Card";
 
-const cat = require("../img/Cat.jpg");
-const me = require("../img/profile_cropped.png");
-const mii = require("../img/mii.png");
+const cat = require("../../img/Cat.jpg");
+const me = require("../../img/profile_cropped.png");
+const mii = require("../../img/mii.png");
 
 const cards = [
   { img: cat, id: 1, desc: "cat" },
@@ -58,7 +58,7 @@ const Cards = (props) => {
   });
 
   return (
-    <>
+    <div id="CardGame">
       <header>
         <h2>Number of Matches found</h2>
         <h1>{numFound}</h1>
@@ -69,7 +69,7 @@ const Cards = (props) => {
         )}
       </header>
       <div className="cards-container">{allCards}</div>
-    </>
+    </div>
   );
 };
 

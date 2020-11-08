@@ -1,8 +1,8 @@
 import React, { useRef} from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import "./scss/main.scss";
-import Cards from "./component/Cards";
-import Spin from './component/Spin'
-import CountDown from './component/Timer'
+import * as C from './component/content';
 
 const scrollToRef = (ref) => {
   ref.current.scrollIntoView({behavior: 'smooth'})
@@ -13,16 +13,20 @@ function App() {
   const executeScroll = () => scrollToRef(myRef)
 
   return (
-    <div className="App">
-      <button onClick={executeScroll}>Jump Down</button>
-      <Cards />
-      <CountDown seconds={5}/>
-      <Spin />
-      <footer ref={myRef}>
-        <p>Lin 2020</p>
-      </footer>
-      
-    </div>
+    <Router>
+      <div className="App">
+        <C.Navigation scroll={executeScroll} />
+        {/* <button id="btn-scrollDown" onClick={executeScroll}>Go Down</button> */}
+          <Switch>
+            <Route path="/Cards" component={C.Cards}/>
+            <Route path="/Spinner" component={C.Spin}/>
+            <Route exact path="/" component={C.Home}/>
+          </Switch>
+        <footer ref={myRef}>
+          <p>Lin 2020</p>
+        </footer>
+      </div>
+    </Router>
   );
 }
 
