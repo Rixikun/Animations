@@ -5,9 +5,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: calc(100vw - 4rem);
-  margin: 0 2rem;
+  width: calc(100vw - 50px);
+  padding: 0 25px;
   height: 100px;
+  background-color: #3c5382;
   ul {
     display: flex;
     flex-direction: row;

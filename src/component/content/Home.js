@@ -4,9 +4,13 @@ const Home =(props)=> {
     
 
     return (
-        <>
-            Hello
-        </>
+        <div id="Home">
+           <p>
+                Hello
+                <br/>
+                Please click a link above
+               </p>
+        </div>
     )
 }
 

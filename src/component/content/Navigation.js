@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 
 const Navigation =(props)=> {
     
-    const linknames = ["Cards", "Spinner"]
+    const linknames = ["Home", "Cards", "Spinner"]
     const links = linknames.map(name => (
-        <li>
+        <li key={name}>
             <NavLink to={"/" + name} activeClassName="link__active">{name}</NavLink>
         </li>
     ))

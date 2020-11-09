@@ -20,6 +20,7 @@ function App() {
           <Switch>
             <Route path="/Cards" component={C.Cards}/>
             <Route path="/Spinner" component={C.Spin}/>
+            <Route path="/Home" component={C.Home}/>
             <Route exact path="/" component={C.Home}/>
           </Switch>
         <footer ref={myRef}>
