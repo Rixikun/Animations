@@ -13,13 +13,19 @@ function Spin(props) {
     return (
         <div id="Spinners">
           <p>
-            {hideOnScroll ? "shown" : "hidden"}
+            {hideOnScroll ? "play" : "stop"}
           </p>
           <div className="spinner-container">
               <div className={`spinner ${hideOnScroll ? 'spinning' : ""}`}>
                   <div className={`spinner-inner ${hideOnScroll ? 'spinning-inner' : ''}`}></div>
                   <div className={`spinner-inner-b ${hideOnScroll ? 'spinning-inner' : ''}`}></div>
               </div>
+          </div>
+
+          <div className="egg-wrapper">
+            <div className={`${hideOnScroll ? "egg" : "egg stop-spin"}`}>
+              <div className="egg-inner"></div>
+            </div>
           </div>
         </div>
     )

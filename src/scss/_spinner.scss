@@ -1,3 +1,13 @@
+#Spinners {
+  text-align: center;
+}
+
+.stop-spin {
+  animation: none !important;
+}
+
+/* block rotate w/ 2 sliders */
+
 .spinner-container {
   height: 100px;
   width: 100%;
@@ -87,5 +97,58 @@
   }
   100% {
     height: 0%;
+  }
+}
+
+/* egg */
+.egg-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.egg {
+  @include flex-col-spaceEvenly;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border: 10px solid rgb(99, 115, 129);
+  border-top: 2px solid rgb(99, 115, 129);
+  border-radius: 100%;
+  background-color: #fff;
+  position: relative;
+  box-sizing: border-box;
+
+  animation: egg-spin 1s infinite linear;
+}
+
+.egg-inner {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  background-color: rgb(244, 147, 66);
+  border-radius: 100%;
+  margin-top: 20px;
+}
+
+@keyframes egg-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(340deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
